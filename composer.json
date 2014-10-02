@@ -1,0 +1,16 @@
+{
+    "name": "phpislove/dota-match-history",
+    "license": "MIT",
+    "description": "DotA 2 Match History API",
+    "require": {
+        "guzzlehttp/guzzle": "~4.0"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "~2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dota\\": "src/Dota/"
+        }
+    }
+}

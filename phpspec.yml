@@ -1,0 +1,8 @@
+formatter.name: pretty
+
+suites:
+    dota_suite:
+        namespace: Dota
+        src_path: src
+        spec_path: specs
+        spec_prefix: Spec
