@@ -1,5 +1,7 @@
 <?php namespace Dota\WebApi;
 
+use GuzzleHttp\Client as GuzzleClient;
+
 class Client {
 
     /**
@@ -8,12 +10,43 @@ class Client {
     protected $key;
 
     /**
+     * @var GuzzleClient
+     */
+    protected $client;
+
+    /**
+     * @var integer
+     */
+    const REQUEST_OK = 200;
+
+    /**
      * @param string $key
+     * @param GuzzleClient $client
      * @return Client
      */
-    public function __construct($key)
+    public function __construct($key, GuzzleClient $client)
     {
         $this->key = (string) $key;
+        $this->client = $client;
+    }
+
+    /**
+     * @param string $url
+     * @param array $params
+     * @return array
+     */
+    public function get($url, array $params = [])
+    {
+        $params = array_merge(['key' => $this->key], $params);
+
+        $response = $this->client->get($url, $params);
+
+        if ($response->getStatusCode() != static::REQUEST_OK)
+        {
+            throw new Exceptions\RequestFailed;
+        }
+
+        return $response->json();
     }
 
     /**

@@ -1,15 +1,15 @@
 <?php namespace Spec\Dota\WebApi;
 
 use PhpSpec\ObjectBehavior;
-// use Prophecy\Argument;
+use GuzzleHttp\Client;
 
 class ClientSpec extends ObjectBehavior {
 
-    protected $key = 'api-key';
+    const API_KEY = 'api-key';
 
-    function let()
+    function let(Client $client)
     {
-        $this->beConstructedWith($this->key);
+        $this->beConstructedWith(static::API_KEY, $client);
     }
 
     function it_is_initializable()
@@ -19,7 +19,7 @@ class ClientSpec extends ObjectBehavior {
 
     function it_returns_the_api_key()
     {
-        $this->getApiKey()->shouldReturn($this->key);
+        $this->getApiKey()->shouldReturn(static::API_KEY);
     }
 
 }
