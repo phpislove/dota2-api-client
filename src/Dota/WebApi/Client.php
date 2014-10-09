@@ -37,9 +37,9 @@ class Client {
      */
     public function get($url, array $params = [])
     {
-        $params = array_merge(['key' => $this->key], $params);
+        $params['key'] = $this->key;
 
-        $response = $this->client->get($url, $params);
+        $response = $this->client->get($url, ['query' => $params]);
 
         if ($response->getStatusCode() != static::REQUEST_OK)
         {
