@@ -1,6 +1,7 @@
 <?php namespace Dota;
 
 use Dota\WebApi\Client;
+use Dota\Collections\PlayersCollection;
 
 class Match {
 
@@ -47,6 +48,14 @@ class Match {
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return PlayersCollection
+     */
+    public function getPlayers()
+    {
+        return new PlayersCollection($this->data['result']['players']);
     }
 
 }

@@ -1,6 +1,8 @@
 <?php namespace Spec\Dota;
 
 use PhpSpec\ObjectBehavior;
+use Prophecy\Argument;
+use Dota\WebApi\Client;
 
 class MatchSpec extends ObjectBehavior {
 
@@ -19,6 +21,15 @@ class MatchSpec extends ObjectBehavior {
     function it_returns_the_match_id()
     {
         $this->getId()->shouldReturn(static::MATCH_ID);
+    }
+
+    function it_returns_the_players(Client $client)
+    {
+        $client->get(Argument::type('string'), Argument::type('array'))
+               ->willReturn(['result' => ['players' => []]]);
+
+        $this->loadData($client);
+        $this->getPlayers()->shouldHaveType('Dota\Collections\PlayersCollection');
     }
 
 }
