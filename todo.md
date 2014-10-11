@@ -10,9 +10,9 @@
 
 # Match (entity)
 
-- retrieving match duration, region, lobby type, skill bracket, game mode, start time
-- retrieving the winner (dire/radiant), match id
-- retrieving players (Player entity)
+- retrieving match duration +, region +, lobby type +, skill bracket (?), game mode + , start time + 
+- retrieving the winner (dire/radiant) +, match id +
+- retrieving players (Player entity) +
 
 # Player (entity)
 

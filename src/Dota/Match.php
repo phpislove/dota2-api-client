@@ -58,4 +58,52 @@ class Match {
         return new PlayersCollection($this->data['result']['players']);
     }
 
+    /**
+     * @return string
+     */
+    public function getWinner()
+    {
+        return $this->data['result']['radiant_win'] ? 'radiant' : 'dire';
+    }
+
+    /**
+     * @return integer
+     */
+    public function getDuration()
+    {
+        return $this->data['result']['duration'];
+    }
+
+    /**
+     * @return integer
+     */
+    public function getStartTime()
+    {
+        return $this->data['result']['start_time'];
+    }
+
+    /**
+     * @return integer
+     */
+    public function getLobbyType()
+    {
+        return $this->data['result']['lobby_type'];
+    }
+
+    /**
+     * @return integer
+     */
+    public function getGameMode()
+    {
+        return $this->data['result']['game_mode'];
+    }
+
+    /**
+     * @return integer
+     */
+    public function getRegion()
+    {
+        return $this->data['result']['cluster'];
+    }
+
 }
