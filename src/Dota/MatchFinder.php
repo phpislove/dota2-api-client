@@ -50,74 +50,90 @@ class MatchFinder {
 
     /**
      * @param string $name
-     * @return void
+     * @return MatchFinder
      */
     public function player($name)
     {
         $this->conditions['player_name'] = $name;
+
+        return $this;
     }
 
     /**
      * @param integer $id
-     * @return void
+     * @return MatchFinder
      */
     public function hero($id)
     {
         $this->conditions['hero_id'] = $id;
+
+        return $this;
     }
 
     /**
      * @param integer $type
-     * @return void
+     * @return MatchFinder
      */
     public function skill($type)
     {
         $this->conditions['skill'] = $type;
+
+        return $this;
     }
 
     /**
      * @param integer $date
-     * @return void
+     * @return MatchFinder
      */
     public function min($date)
     {
         $this->conditions['date_min'] = $date;
+
+        return $this;
     }
 
     /**
      * @param integer $date
-     * @return void
+     * @return MatchFinder
      */
     public function max($date)
     {
         $this->conditions['date_max'] = $date;
+
+        return $this;
     }
 
     /**
      * @param integer $id
-     * @return void
+     * @return MatchFinder
      */
     public function account($id)
     {
         $this->conditions['account_id'] = $id;
+
+        return $this;
     }
 
     /**
      * @param integer $matchId
-     * @return void
+     * @return MatchFinder
      */
     public function startAt($matchId)
     {
         $this->conditions['start_at_match_id'] = $matchId;
+
+        return $this;
     }
 
     /**
      * @param integer $number
-     * @return void
+     * @return MatchFinder
      */
     public function amount($number)
     {
         $this->conditions['matches_requested'] = $number;
+
+        return $this;
     }
 
 }
