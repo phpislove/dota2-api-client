@@ -6,11 +6,6 @@ use Dota\WebApi\Client;
 
 class MatchFinderSpec extends ObjectBehavior {
 
-    public function let(Client $client)
-    {
-        $this->beConstructedWith($client);
-    }
-
     function it_is_initializable()
     {
         $this->shouldHaveType('Dota\MatchFinder');
@@ -29,7 +24,7 @@ class MatchFinderSpec extends ObjectBehavior {
             ],
         ]);
 
-        $this->find()->shouldHaveType('Dota\Collections\MatchesCollection');
+        $this->find($client)->shouldHaveType('Dota\Collections\MatchesCollection');
     }
 
 }

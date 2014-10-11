@@ -12,23 +12,9 @@ class MatchFinder {
         'https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/V001';
 
     /**
-     * @var Client
-     */
-    protected $client;
-
-    /**
      * @var array
      */
     protected $conditions = [];
-
-    /**
-     * @param Client $client
-     * @return MatchFinder
-     */
-    public function __construct(Client $client)
-    {
-        $this->client = $client;
-    }
 
     /**
      * @return array
@@ -39,11 +25,12 @@ class MatchFinder {
     }
 
     /**
+     * @param Client $client
      * @return MatchesCollection
      */
-    public function find()
+    public function find(Client $client)
     {
-        $response = $this->client->get(static::URL, $this->conditions);
+        $response = $client->get(static::URL, $this->conditions);
 
         return new MatchesCollection($response['result']['matches']);
     }
