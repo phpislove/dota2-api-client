@@ -51,4 +51,108 @@ class Player {
         return new ItemsCollection($items);
     }
 
+    /**
+     * @return integer
+     */
+    public function getKills()
+    {
+        return $this->data['kills'];
+    }
+
+    /**
+     * @return integer
+     */
+    public function getDeaths()
+    {
+        return $this->data['deaths'];
+    }
+
+    /**
+     * @return integer
+     */
+    public function getAssists()
+    {
+        return $this->data['assists'];
+    }
+
+    /**
+     * @return boolean
+     */
+    public function hasAbandoned()
+    {
+        return $this->data['leaver_status'];
+    }
+
+    /**
+     * @return integer
+     */
+    public function getGold()
+    {
+        return $this->data['gold_spent'] + $this->data['gold'];
+    }
+
+    /**
+     * @return integer
+     */
+    public function getLastHits()
+    {
+        return $this->data['last_hits'];
+    }
+
+    /**
+     * @return integer
+     */
+    public function getDenies()
+    {
+        return $this->data['denies'];
+    }
+
+    /**
+     * @return integer
+     */
+    public function getGoldPerMin()
+    {
+        return $this->data['gold_per_min'];
+    }
+
+    /**
+     * @return integer
+     */
+    public function getXpPerMin()
+    {
+        return $this->data['xp_per_min'];
+    }
+
+    /**
+     * @return integer
+     */
+    public function getHeroDamage()
+    {
+        return $this->data['hero_damage'];
+    }
+
+    /**
+     * @return integer
+     */
+    public function getTowerDamage()
+    {
+        return $this->data['tower_damage'];
+    }
+
+    /**
+     * @return integer
+     */
+    public function getHeroHealing()
+    {
+        return $this->data['hero_healing'];
+    }
+
+    /**
+     * @return integer
+     */
+    public function getLevel()
+    {
+        return $this->data['level'];
+    }
+
 }
