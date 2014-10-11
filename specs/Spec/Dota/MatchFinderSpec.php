@@ -1,6 +1,7 @@
 <?php namespace Spec\Dota;
 
-use PhpSpec\ObjectBehavior, Prophecy\Argument;
+use PhpSpec\ObjectBehavior;
+use Prophecy\Argument;
 use Dota\WebApi\Client;
 
 class MatchFinderSpec extends ObjectBehavior {
@@ -22,9 +23,13 @@ class MatchFinderSpec extends ObjectBehavior {
 
     function it_executes_the_query(Client $client)
     {
-        $client->get(Argument::type('string'), [])->willReturn([]);
+        $client->get(Argument::type('string'), [])->willReturn([
+            'result' => [
+                'matches' => [],
+            ],
+        ]);
 
-        $this->find()->shouldReturn([]);
+        $this->find()->shouldHaveType('Dota\Collections\MatchesCollection');
     }
 
 }

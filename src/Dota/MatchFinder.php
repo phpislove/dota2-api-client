@@ -1,6 +1,7 @@
 <?php namespace Dota;
 
 use Dota\WebApi\Client;
+use Dota\Collections\MatchesCollection;
 
 class MatchFinder {
 
@@ -38,11 +39,13 @@ class MatchFinder {
     }
 
     /**
-     * @return array
+     * @return MatchesCollection
      */
     public function find()
     {
-        return $this->client->get(static::URL, $this->conditions);
+        $response = $this->client->get(static::URL, $this->conditions);
+
+        return new MatchesCollection($response['result']['matches']);
     }
 
     /**
