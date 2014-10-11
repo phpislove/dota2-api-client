@@ -22,4 +22,19 @@ class Skill {
      */
     const VERY_HIGH = 3;
 
+    /**
+     * @param integer $id
+     * @return string
+     */
+    public function getSkillLevel($id)
+    {
+        switch ($id)
+        {
+            case static::NORMAL: return 'Normal';
+            case static::HIGH: return 'High';
+            case static::VERY_HIGH: return 'Very High';
+            default: return null;
+        }
+    }
+
 }
