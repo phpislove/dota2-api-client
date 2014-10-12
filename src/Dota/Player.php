@@ -84,6 +84,14 @@ class Player {
     }
 
     /**
+     * @return string
+     */
+    public function getTeam()
+    {
+        return $this->data['player_slot'] > 4 ? 'dire' : 'radiant';
+    }
+
+    /**
      * @return integer
      */
     public function getGold()
