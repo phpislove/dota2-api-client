@@ -59,6 +59,21 @@ class Match {
     }
 
     /**
+     * @param integer $accountId
+     * @return Player
+     */
+    public function getPlayer($accountId)
+    {
+        foreach ($this->getPlayers()->all() as $player)
+        {
+            if ($player->getAccountId() == $accountId)
+            {
+                return $player;
+            }
+        }
+    }
+
+    /**
      * @return string
      */
     public function getWinner()
